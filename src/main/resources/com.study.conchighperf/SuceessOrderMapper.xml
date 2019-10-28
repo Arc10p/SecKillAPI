@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.conchighperf.Mapper.SuceessOrderMapper">
+  <resultMap id="BaseResultMap" type="com.study.conchighperf.POJO.SuceessOrder">
+    <!--@mbg.generated-->
+    <id column="orderid" property="orderid" />
+    <result column="goodid" property="goodid" />
+    <result column="userid" property="userid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    orderid, goodid, userid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from suceess_order
+    where orderid = #{orderid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from suceess_order
+    where orderid = #{orderid}
+  </delete>
+  <insert id="insert" parameterType="com.study.conchighperf.POJO.SuceessOrder"
+
+  >
+    <!--返回自增id-->
+    <!--@mbg.generated-->
+    insert into suceess_order ( goodid, userid)
+    values ( #{goodid}, #{userid})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.study.conchighperf.POJO.SuceessOrder">
+    <!--@mbg.generated-->
+    insert into suceess_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="goodid != null">
+        goodid,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid},
+      </if>
+      <if test="goodid != null">
+        #{goodid},
+      </if>
+      <if test="userid != null">
+        #{userid},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.study.conchighperf.POJO.SuceessOrder">
+    <!--@mbg.generated-->
+    update suceess_order
+    <set>
+      <if test="goodid != null">
+        goodid = #{goodid},
+      </if>
+      <if test="userid != null">
+        userid = #{userid},
+      </if>
+    </set>
+    where orderid = #{orderid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.study.conchighperf.POJO.SuceessOrder">
+    <!--@mbg.generated-->
+    update suceess_order
+    set goodid = #{goodid},
+      userid = #{userid}
+    where orderid = #{orderid}
+  </update>
+</mapper>
